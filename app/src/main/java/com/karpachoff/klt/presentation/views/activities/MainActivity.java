@@ -1,7 +1,9 @@
-package com.karpachoff.klt;
+package com.karpachoff.klt.presentation.views.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.karpachoff.klt.R;
 
 public class MainActivity extends AppCompatActivity {
 
