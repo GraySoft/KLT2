@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">KLT</string>
+    <string name="name">Имя</string>
+    <string name="password">Пароль</string>
+    <string name="forgetPassword">Забыли пароль</string>
+    <string name="signIn">Войти</string>
+    <string name="registration">Нет аккаунта? Зерегестрироваться</string>
+    <string name="email">Email</string>
+    <string name="tvEmail">Введите e-mail для восстановления пароля</string>
 </resources>
