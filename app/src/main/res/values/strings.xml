@@ -7,4 +7,6 @@
     <string name="registration">Нет аккаунта? Зерегестрироваться</string>
     <string name="email">Email</string>
     <string name="tvEmail">Введите e-mail для восстановления пароля</string>
+    <string name="btnRegistration">Зарегистрироваться</string>
+    <string name="createAccount">Создать аккаунт</string>
 </resources>

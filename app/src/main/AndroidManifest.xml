@@ -18,9 +18,12 @@
         </activity>
         <activity
             android:name=".presentation.views.activities.LoginActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".presentation.views.activities.RestorePasswordActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".presentation.views.activities.RegistrationActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
