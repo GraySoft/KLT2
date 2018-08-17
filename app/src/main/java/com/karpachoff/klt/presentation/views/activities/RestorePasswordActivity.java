@@ -12,7 +12,6 @@ import com.karpachoff.klt.R;
 public class RestorePasswordActivity extends AppCompatActivity {
 
     TextInputLayout layoutEmail;
-    TextInputEditText email;
 
     Button btnSignInRestorePasswordActivity;
     Button btnRegistrationRestorePasswordActivity;
@@ -22,11 +21,7 @@ public class RestorePasswordActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restore_password);
 
-        //one of the options
         layoutEmail = findViewById(R.id.layoutEmail);
-        email = layoutEmail.findViewById(R.id.email);
-
-        email = findViewById(R.id.email);
 
         btnSignInRestorePasswordActivity = findViewById(R.id.btnSignInRestorePasswordActivity);
         btnSignInRestorePasswordActivity.setOnClickListener(v -> {

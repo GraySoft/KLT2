@@ -11,10 +11,8 @@ import com.karpachoff.klt.R;
 public class LoginActivity extends AppCompatActivity {
 
     TextInputLayout layoutName;
-    TextInputEditText name;
 
     TextInputLayout layoutPassword;
-    TextInputEditText password;
 
     Button btnForgetPassword;
     Button btnRegistrationLogInActivity;
@@ -25,17 +23,9 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        //choose one of the options
         layoutName = findViewById(R.id.layoutName);
-        name = layoutName.findViewById(R.id.name);
 
-        name = findViewById(R.id.email);
-
-        //choose one of the options
         layoutPassword = findViewById(R.id.layoutPassword);
-        password = layoutPassword.findViewById(R.id.password);
-
-        password = findViewById(R.id.password);
 
         btnForgetPassword = findViewById(R.id.btnForgetPassword);
         btnForgetPassword.setOnClickListener(v -> {

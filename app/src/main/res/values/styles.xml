@@ -20,5 +20,16 @@
         <item name="android:textSize">17sp</item>
     </style>
 
+    <!--Floating label text style-->
+    <style name="MyHintText" parent="TextAppearance.AppCompat.Small">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <!--Input field style-->
+    <style name="MyEditText" parent="Theme.AppCompat.Light">
+        <item name="colorControlNormal">#C0C0C0</item>
+        <item name="colorControlActivated">@android:color/darker_gray</item>
+    </style>
+
 
 </resources>
