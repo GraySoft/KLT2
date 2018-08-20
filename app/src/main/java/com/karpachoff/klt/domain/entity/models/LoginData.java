@@ -1,4 +1,4 @@
-package com.karpachoff.klt.presentation.models;
+package com.karpachoff.klt.domain.entity.models;
 
 public class LoginData {
 

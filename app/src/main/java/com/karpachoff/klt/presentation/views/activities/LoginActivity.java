@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.widget.Button;
 
 import com.karpachoff.klt.R;
-import com.karpachoff.klt.presentation.models.LoginData;
+import com.karpachoff.klt.domain.entity.models.LoginData;
 
 public class LoginActivity extends AppCompatActivity {
 
