@@ -1,6 +1,5 @@
 package com.karpachoff.klt.presentation.views.activities;
 
-import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,28 +7,27 @@ import android.widget.Button;
 
 import com.karpachoff.klt.R;
 import com.karpachoff.klt.domain.entity.models.LoginData;
+import com.karpachoff.klt.presentation.contract.LoginContract;
+import com.karpachoff.klt.presentation.presenters.LoginPresenter;
 
-public class LoginActivity extends AppCompatActivity {
-
-    TextInputLayout layoutName;
-
-    TextInputLayout layoutPassword;
+public class LoginActivity extends AppCompatActivity implements LoginContract.View{
 
     Button btnForgetPassword;
     Button btnRegistrationLogInActivity;
     Button btnSignInLogInActivity;
 
-    TextInputEditText editTextName = findViewById(R.id.name);
-    TextInputEditText editTextPassword = findViewById(R.id.password);
+    TextInputLayout editTextName;
+    TextInputLayout editTextPassword;
+
+    LoginPresenter loginPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        layoutName = findViewById(R.id.layoutName);
-
-        layoutPassword = findViewById(R.id.layoutPassword);
+        editTextName = findViewById(R.id.layoutName);
+        editTextPassword = findViewById(R.id.layoutPassword);
 
         btnForgetPassword = findViewById(R.id.btnForgetPassword);
         btnForgetPassword.setOnClickListener(v -> {
@@ -38,7 +36,10 @@ public class LoginActivity extends AppCompatActivity {
 
         btnSignInLogInActivity = findViewById(R.id.btnSignInLogInActivity);
         btnSignInLogInActivity.setOnClickListener(v -> {
-
+            editTextName.setError(null);
+            editTextPassword.setError(null);
+            loginPresenter = new LoginPresenter(this);
+            loginPresenter.validation(editTextName.getEditText().getText().toString(), editTextPassword.getEditText().getText().toString());
         });
 
         btnRegistrationLogInActivity = findViewById(R.id.btnRegistrationLogInActivity);
@@ -47,10 +48,25 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    public LoginData getUserData() {
+    public LoginData getLoginData() {
         LoginData loginData = new LoginData();
-        loginData.setName(editTextName.getText().toString());
-        loginData.setPassword(editTextPassword.getText().toString());
+        loginData.setName(editTextName.getEditText().getText().toString());
+        loginData.setPassword(editTextPassword.getEditText().getText().toString());
         return loginData;
+    }
+
+    @Override
+    public void showNameErrorLength() {
+        editTextName.setError("Имя слишком короткое");
+    }
+
+    @Override
+    public void showNameErrorCharacter() {
+        editTextName.setError("Вы не написали символ @ ");
+    }
+
+    @Override
+    public void showPasswordError() {
+        editTextPassword.setError("Пароль слишком короткий");
     }
 }

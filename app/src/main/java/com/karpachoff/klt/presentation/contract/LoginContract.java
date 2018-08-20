@@ -1,19 +1,22 @@
 package com.karpachoff.klt.presentation.contract;
 
-import com.karpachoff.klt.R;
-import com.karpachoff.klt.domain.entity.models.*;
+import com.karpachoff.klt.domain.entity.models.LoginData;
+
 public interface LoginContract {
 
     interface View {
         LoginData getLoginData();
-        void showErrorName();
-        void showErrorPassword();
-        void cleanErrors();
+
+        void showPasswordError();
+
+        void showNameErrorLength();
+        void showNameErrorCharacter();
     }
 
     interface Presenter {
-        void attachView(View view);
-        void onClickButtonLogin();
+        void onClickButtonForgotPassword();
+        void onClickButtonLogin(String email, String password);
+        void onClickButtonCreateAccount();
     }
 
 }
