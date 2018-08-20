@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.widget.Button;
 
 import com.karpachoff.klt.R;
+import com.karpachoff.klt.presentation.models.LoginData;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -17,6 +18,9 @@ public class LoginActivity extends AppCompatActivity {
     Button btnForgetPassword;
     Button btnRegistrationLogInActivity;
     Button btnSignInLogInActivity;
+
+    TextInputEditText editTextName = findViewById(R.id.name);
+    TextInputEditText editTextPassword = findViewById(R.id.password);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,5 +45,12 @@ public class LoginActivity extends AppCompatActivity {
         btnRegistrationLogInActivity.setOnClickListener(v -> {
 
         });
+    }
+
+    public LoginData getUserData() {
+        LoginData loginData = new LoginData();
+        loginData.setName(editTextName.getText().toString());
+        loginData.setPassword(editTextPassword.getText().toString());
+        return loginData;
     }
 }
