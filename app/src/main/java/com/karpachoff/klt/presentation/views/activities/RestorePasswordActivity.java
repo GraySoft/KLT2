@@ -49,4 +49,10 @@ public class RestorePasswordActivity extends AppCompatActivity implements Restor
     public void showEmailErrorCharacter() {
         editTextEmail.setError(getString(R.string.errorEmailCharacter));
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        presenter.detachView();
+    }
 }

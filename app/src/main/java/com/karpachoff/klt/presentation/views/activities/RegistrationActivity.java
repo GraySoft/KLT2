@@ -75,4 +75,10 @@ public class RegistrationActivity extends AppCompatActivity implements Registrat
     public void showPasswordError() {
         editTextPassword.setError(getString(R.string.errorPasswordLength));
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        presenter.detachView();
+    }
 }
