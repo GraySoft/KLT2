@@ -14,5 +14,7 @@ public interface RegistrationContract {
     interface Presenter {
         void onClickButtonAddPhoto();
         void onClickButtonRegistration(String name, String email, String password);
+        void attachView(RegistrationContract.View view);
+        void detachView();
     }
 }

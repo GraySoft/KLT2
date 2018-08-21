@@ -16,7 +16,7 @@ public class RestorePasswordActivity extends AppCompatActivity implements Restor
     Button btnLogin;
     Button btnRegistration;
 
-    RestorePasswordContract.Presenter restorePasswordPresenter;
+    RestorePasswordContract.Presenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,8 +27,10 @@ public class RestorePasswordActivity extends AppCompatActivity implements Restor
 
         btnLogin = findViewById(R.id.btnSignInRestorePasswordActivity);
         btnLogin.setOnClickListener(v -> {
-            restorePasswordPresenter = new RestorePasswordPresenter(this);
-            restorePasswordPresenter.onClickButtonLogin(editTextEmail.getEditText().getText().toString());
+            editTextEmail.setError(null);
+            presenter = new RestorePasswordPresenter();
+            presenter.attachView(this);
+            presenter.onClickButtonLogin(editTextEmail.getEditText().getText().toString());
         });
 
         btnRegistration = findViewById(R.id.btnRegistrationRestorePasswordActivity);

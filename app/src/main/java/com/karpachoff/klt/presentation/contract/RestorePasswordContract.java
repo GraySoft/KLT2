@@ -10,5 +10,7 @@ public interface RestorePasswordContract {
 
     interface Presenter {
         void onClickButtonLogin(String email);
+        void attachView(RestorePasswordContract.View view);
+        void detachView();
     }
 }

@@ -21,7 +21,7 @@ public class RegistrationActivity extends AppCompatActivity implements Registrat
     TextInputLayout editTextEmail;
     TextInputLayout editTextPassword;
 
-    RegistrationPresenter registrationPresenter;
+    RegistrationContract.Presenter presenter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,8 +46,9 @@ public class RegistrationActivity extends AppCompatActivity implements Registrat
             editTextName.setError(null);
             editTextEmail.setError(null);
             editTextPassword.setError(null);
-            registrationPresenter = new RegistrationPresenter(this);
-            registrationPresenter.validation(
+            presenter = new RegistrationPresenter();
+            presenter.attachView(this);
+            presenter.onClickButtonRegistration(
                     editTextName.getEditText().getText().toString(),
                     editTextEmail.getEditText().getText().toString(),
                     editTextPassword.getEditText().getText().toString());

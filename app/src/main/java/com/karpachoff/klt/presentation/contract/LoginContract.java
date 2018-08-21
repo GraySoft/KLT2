@@ -10,13 +10,13 @@ public interface LoginContract {
         void showPasswordError();
 
         void showNameErrorLength();
-        void showNameErrorCharacter();
     }
 
     interface Presenter {
         void onClickButtonForgotPassword();
         void onClickButtonLogin(String email, String password);
         void onClickButtonCreateAccount();
+        void attachView(LoginContract.View view);
+        void detachView();
     }
-
 }

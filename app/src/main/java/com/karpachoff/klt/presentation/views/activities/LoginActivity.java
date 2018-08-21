@@ -10,7 +10,7 @@ import com.karpachoff.klt.domain.entity.models.LoginData;
 import com.karpachoff.klt.presentation.contract.LoginContract;
 import com.karpachoff.klt.presentation.presenters.LoginPresenter;
 
-public class LoginActivity extends AppCompatActivity implements LoginContract.View{
+public class LoginActivity extends AppCompatActivity implements LoginContract.View {
 
     Button btnForgetPassword;
     Button btnRegistrationLogInActivity;
@@ -19,7 +19,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     TextInputLayout editTextName;
     TextInputLayout editTextPassword;
 
-    LoginPresenter loginPresenter;
+    LoginContract.Presenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +38,11 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
         btnSignInLogInActivity.setOnClickListener(v -> {
             editTextName.setError(null);
             editTextPassword.setError(null);
-            loginPresenter = new LoginPresenter(this);
-            loginPresenter.validation(editTextName.getEditText().getText().toString(), editTextPassword.getEditText().getText().toString());
+            presenter = new LoginPresenter();
+            presenter.attachView(this);
+            presenter.onClickButtonLogin(
+                    editTextName.getEditText().getText().toString(),
+                    editTextPassword.getEditText().getText().toString());
         });
 
         btnRegistrationLogInActivity = findViewById(R.id.btnRegistrationLogInActivity);
@@ -58,11 +61,6 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     @Override
     public void showNameErrorLength() {
         editTextName.setError("Имя слишком короткое");
-    }
-
-    @Override
-    public void showNameErrorCharacter() {
-        editTextName.setError("Вы не написали символ @ ");
     }
 
     @Override

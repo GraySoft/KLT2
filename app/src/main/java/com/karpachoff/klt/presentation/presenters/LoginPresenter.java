@@ -4,11 +4,7 @@ import com.karpachoff.klt.presentation.contract.LoginContract;
 import com.karpachoff.klt.presentation.views.activities.LoginActivity;
 
 public class LoginPresenter implements LoginContract.Presenter {
-    LoginContract.View loginActivity;
-
-    public LoginPresenter(LoginActivity loginActivity) {
-        this.loginActivity = loginActivity;
-    }
+    LoginContract.View view;
 
     @Override
     public void onClickButtonForgotPassword() {
@@ -16,22 +12,30 @@ public class LoginPresenter implements LoginContract.Presenter {
     }
 
     @Override
-    public void onClickButtonLogin(String email, String password) {
-        validation(email, password);
+    public void onClickButtonLogin(String name, String password) {
+        validation(name, password);
     }
 
     @Override
     public void onClickButtonCreateAccount() {
     }
 
-    public void validation(String email, String password) {
-        if (email.isEmpty()) {
-            loginActivity.showNameErrorLength();
-        } else if (!email.contains("@")) {
-            loginActivity.showNameErrorCharacter();
+    @Override
+    public void attachView(LoginContract.View view) {
+        this.view = view;
+    }
+
+    @Override
+    public void detachView() {
+        view = null;
+    }
+
+    public void validation(String name, String password) {
+        if (name.isEmpty()) {
+            view.showNameErrorLength();
         }
         if (password.length() < 4) {
-            loginActivity.showPasswordError();
+            view.showPasswordError();
         }
     }
 }
