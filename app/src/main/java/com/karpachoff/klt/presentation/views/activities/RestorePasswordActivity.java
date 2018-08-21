@@ -42,11 +42,11 @@ public class RestorePasswordActivity extends AppCompatActivity implements Restor
 
     @Override
     public void showEmailErrorLength() {
-        editTextEmail.setError("E-mail слишком короткий");
+        editTextEmail.setError(getString(R.string.errorEmailLength));
     }
 
     @Override
     public void showEmailErrorCharacter() {
-        editTextEmail.setError("Вы не написали символ @");
+        editTextEmail.setError(getString(R.string.errorEmailCharacter));
     }
 }

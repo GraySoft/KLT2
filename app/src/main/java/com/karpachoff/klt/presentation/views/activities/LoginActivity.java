@@ -61,11 +61,11 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
 
     @Override
     public void showNameErrorLength() {
-        editTextName.setError("Имя слишком короткое");
+        editTextName.setError(getString(R.string.errorNameLength));
     }
 
     @Override
     public void showPasswordError() {
-        editTextPassword.setError("Пароль слишком короткий");
+        editTextPassword.setError(getString(R.string.errorPasswordLength));
     }
 }

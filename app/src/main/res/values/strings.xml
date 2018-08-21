@@ -9,4 +9,11 @@
     <string name="tvEmail">Введите e-mail для восстановления пароля</string>
     <string name="btnRegistration">Зарегистрироваться</string>
     <string name="createAccount">Создать аккаунт</string>
+
+    //Errors
+    <string name="errorNameLength">Имя слишком короткое</string>
+    <string name="errorEmailLength">E-mail слишком короткий</string>
+    <string name="errorEmailCharacter">Вы не написали символ @</string>
+    <string name="errorPasswordLength">Пароль слишком короткий</string>
+
 </resources>

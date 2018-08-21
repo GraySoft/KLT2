@@ -58,21 +58,21 @@ public class RegistrationActivity extends AppCompatActivity implements Registrat
 
     @Override
     public void showNameErrorLength() {
-        editTextName.setError("Имя слишком короткое");
+        editTextName.setError(getString(R.string.errorNameLength));
     }
 
     @Override
     public void showEmailErrorLength() {
-        editTextEmail.setError("E-mail слишком короткий");
+        editTextEmail.setError(getString(R.string.errorEmailLength));
     }
 
     @Override
     public void showEmailErrorCharacter() {
-        editTextEmail.setError("Вы не написали символ @");
+        editTextEmail.setError(getString(R.string.errorEmailCharacter));
     }
 
     @Override
     public void showPasswordError() {
-        editTextPassword.setError("Пароль слишком короткий");
+        editTextPassword.setError(getString(R.string.errorPasswordLength));
     }
 }
