@@ -25,11 +25,12 @@ public class RestorePasswordActivity extends AppCompatActivity implements Restor
 
         editTextEmail = findViewById(R.id.layoutEmail);
 
+        presenter = new RestorePasswordPresenter();
+        presenter.attachView(this);
+
         btnLogin = findViewById(R.id.btnSignInRestorePasswordActivity);
         btnLogin.setOnClickListener(v -> {
             editTextEmail.setError(null);
-            presenter = new RestorePasswordPresenter();
-            presenter.attachView(this);
             presenter.onClickButtonLogin(editTextEmail.getEditText().getText().toString());
         });
 

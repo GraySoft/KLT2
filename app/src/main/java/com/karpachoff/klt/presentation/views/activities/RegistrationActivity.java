@@ -38,6 +38,9 @@ public class RegistrationActivity extends AppCompatActivity implements Registrat
         editTextEmail = findViewById(R.id.layoutEmail);
         editTextPassword = findViewById(R.id.layoutPassword);
 
+        presenter = new RegistrationPresenter();
+        presenter.attachView(this);
+
         btnAddPhoto = findViewById(R.id.btnAddPhoto);
         btnAddPhoto.setOnClickListener(v -> Toast.makeText(this, "it's work", Toast.LENGTH_SHORT).show());
 
@@ -46,8 +49,6 @@ public class RegistrationActivity extends AppCompatActivity implements Registrat
             editTextName.setError(null);
             editTextEmail.setError(null);
             editTextPassword.setError(null);
-            presenter = new RegistrationPresenter();
-            presenter.attachView(this);
             presenter.onClickButtonRegistration(
                     editTextName.getEditText().getText().toString(),
                     editTextEmail.getEditText().getText().toString(),

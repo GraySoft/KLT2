@@ -29,6 +29,9 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
         editTextName = findViewById(R.id.layoutName);
         editTextPassword = findViewById(R.id.layoutPassword);
 
+        presenter = new LoginPresenter();
+        presenter.attachView(this);
+
         btnForgetPassword = findViewById(R.id.btnForgetPassword);
         btnForgetPassword.setOnClickListener(v -> {
 
@@ -38,8 +41,6 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
         btnSignInLogInActivity.setOnClickListener(v -> {
             editTextName.setError(null);
             editTextPassword.setError(null);
-            presenter = new LoginPresenter();
-            presenter.attachView(this);
             presenter.onClickButtonLogin(
                     editTextName.getEditText().getText().toString(),
                     editTextPassword.getEditText().getText().toString());
